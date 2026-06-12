@@ -40,3 +40,6 @@ User-agent: cohere-ai
 Allow: /
 
 Sitemap: https://contour.ltd/sitemap.xml
+
+# AI discovery files
+# LLMs.txt: https://contour.ltd/llms.txt

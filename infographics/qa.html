@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"/>
+<style>*{margin:0;box-sizing:border-box}#root{width:1200px;height:700px}</style>
+<script src="vendor/react.js"></script><script src="vendor/react-dom.js"></script>
+<script src="vendor/htm.js"></script><script src="shared.js"></script>
+</head><body><div id="root"></div><script>
+const { html, T, Chair3D, mount } = UI;
+function Cell({bg,label,children}){return html`<div style=${{position:'relative',background:bg,borderRadius:16,display:'flex',alignItems:'center',justifyContent:'center'}}>
+  ${children}
+  <div style=${{position:'absolute',bottom:6,left:8,fontFamily:T.font,fontSize:14,color:bg==='#0e1320'?'#9fb0cf':'#5A6472'}}>${label}</div>
+</div>`;}
+function App(){return html`<div style=${{width:1200,height:700,background:'#fff',fontFamily:T.font,display:'grid',gridTemplateColumns:'repeat(4,1fr)',gridTemplateRows:'1fr 1fr',gap:14,padding:14}}>
+  <${Cell} bg="#F4F6FB" label="DEBUG: seat=blue legs=red back=green"><div style=${{width:360,height:360}}><${Chair3D} debug=${true}/></div></${Cell}>
+  <${Cell} bg="#EEF2F9" label="photo @ large"><div style=${{width:360,height:360}}><${Chair3D} mode="photo" color="#C7903F"/></div></${Cell}>
+  <${Cell} bg="#0e1320" label="line @ large"><div style=${{width:360,height:360}}><${Chair3D} mode="line" glow=${true}/></div></${Cell}>
+  <${Cell} bg="#EEF2F9" label="photo @ small"><div style=${{width:150,height:150}}><${Chair3D} mode="photo" color="#C7903F"/></div></${Cell}>
+  <${Cell} bg="#E7ECF8" label="gray (before)"><div style=${{width:240,height:240}}><${Chair3D} mode="photo" color="#AFB7C6"/></div></${Cell}>
+  <${Cell} bg="#0e1320" label="overlay">
+    <div style=${{position:'absolute',left:'18%',top:'16%',width:'62%',height:'62%',opacity:.55}}><${Chair3D} mode="photo" color="#7f8db0"/></div>
+    <div style=${{position:'absolute',left:'22%',top:'13%',width:'62%',height:'62%'}}><${Chair3D} mode="line" glow=${true}/></div>
+  </${Cell}>
+  <${Cell} bg="#EEF2F9" label="photo blue"><div style=${{width:240,height:240}}><${Chair3D} mode="photo" color="#334B90"/></div></${Cell}>
+  <${Cell} bg="#EEF2F9" label="photo tiny"><div style=${{width:90,height:90}}><${Chair3D} mode="photo" color="#C7903F"/></div></${Cell}>
+</div>`;}
+mount(html`<${App}/>`);
+</script></body></html>

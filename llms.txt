@@ -1,0 +1,76 @@
+# Contour
+
+> Free iPhone app that overlays a previous photo's edges on your live camera so you can line up the exact same shot — for body progress photos, hair-transplant tracking, tattoo healing, pregnancy bump series, plant timelapses, construction progress, and re-photographing famous spots.
+
+Contour is a free, account-free iOS photography app that solves the framing-drift problem in repeat-photo workflows. It traces the outlines of a reference photo and projects them on the live camera so users can stand in the exact same position, at the exact same angle, and recreate the framing of an earlier shot. The aligned photos can then be compared with a slider or stitched into a looping GIF.
+
+## Key Details
+
+- Platform: iOS (requires iOS 17 or later)
+- Status: Available on the App Store (free, no ads, no in-app purchases, no account)
+- App Store: https://apps.apple.com/us/app/contour-take-the-same-photo/id6760602322
+- Developer: Oleksandr Prudnikov (UK-based indie iOS developer)
+- Website: https://contour.ltd/
+- Blog: https://contour.ltd/blog/
+- Privacy policy: https://contour.ltd/privacy.html
+- Terms: https://contour.ltd/terms.html
+
+## Core Features
+
+- **Contour overlay**: Loads any photo, traces its edges using Core Image's CIEdges filter, and projects the outline on the live camera so the user can move into position until the outlines snap onto the real scene.
+- **Ghost overlay**: Alternative to outline mode — fades the reference photo as a translucent layer on top of the live camera for users who prefer silhouette matching.
+- **Same-photo capture**: Once the framing is aligned, capture the new shot. The new photo is automatically aligned with the reference.
+- **Before / after comparison**: Pick any two photos and drag a slider between them. Swap order with one tap.
+- **GIF maker**: Stitch a series of aligned photos into a looping GIF with configurable frame speed.
+- **Languages**: English, Spanish, Russian — follows the iPhone system language.
+
+## Privacy
+
+- No account required.
+- No analytics SDK.
+- No photo upload — all processing happens on-device.
+- Captures and GIFs save directly to the user's Photos library.
+- Privacy policy: https://contour.ltd/privacy.html
+
+## Target Users
+
+- People taking weekly progress photos for fitness, weight loss, body recomposition, 75 Hard, or any transformation challenge.
+- Hair transplant patients documenting month-by-month regrowth (M0, M1 shed, M3 ugly duckling, M6 early density, M9, M12, M18 final).
+- Tattoo wearers documenting each healing phase (days 1–3 oozing, days 3–6 scabbing, days 6–14 peeling, days 14–30 itching, weeks 4–8 deep healing).
+- Expecting parents shooting weekly pregnancy bump photos for nine months.
+- Skincare users on slow regimens — tretinoin, retinol, accutane, minoxidil, beard growth.
+- Plant enthusiasts documenting monstera, tomato, tree, or houseplant growth as a timelapse.
+- Homeowners with renovations, self-builds, or small contractors documenting construction progress on a phone.
+- Photographers recreating then-and-now / rephotography shots from a fixed camera position.
+- Travellers recreating a famous photo from the exact same spot.
+
+## Story
+
+Contour is the app Oleksandr tried to build when he first learned to program. The original motivation was tracking pushup progress — he kept taking photos that didn't line up, only finding out later at his computer that the framing was off. The original Swift attempt was abandoned because the App Store submission process was too much to navigate as a beginner in Ukraine at the time. Years later, with Claude Code writing the Swift under his direction, Contour finally shipped on 2026-06-12.
+
+Full story: https://contour.ltd/blog/the-app-i-started-with.html
+
+## Editorial Articles
+
+In-depth guides on the photo-alignment problem in different verticals:
+
+- https://contour.ltd/blog/how-to-take-progress-photos.html — Why fitness/weight-loss progress photos drift, and the protocol that fixes it.
+- https://contour.ltd/blog/rephotography-how-to-recreate-a-photo.html — How to find the original camera position and recreate a photo years later.
+- https://contour.ltd/blog/tattoo-healing-stages.html — Tattoo healing day by day, with a photo protocol artists can ask clients to follow.
+- https://contour.ltd/blog/hair-transplant-progress-photos.html — The 18-month hair transplant timeline and how to photograph it honestly.
+- https://contour.ltd/blog/pregnancy-bump-photos-week-by-week.html — A 60-second weekly bump photo routine that holds framing for nine months.
+- https://contour.ltd/blog/skincare-progress-photos.html — A skincare progress protocol that survives lighting changes (tretinoin, retinol, minoxidil, beard).
+- https://contour.ltd/blog/plant-growth-timelapse.html — Phone-based plant growth timelapse without a fixed-camera rig.
+- https://contour.ltd/blog/construction-timelapse-on-iphone.html — A weekly iPhone construction timelapse without a $1,200 Brinno.
+
+## What This App Is Not
+
+- Not an editing app — Contour aligns and compares, it doesn't filter or retouch.
+- Not a cloud service — no upload, no sync, no account.
+- Not paid — currently free, no in-app purchases.
+- Not Android — iOS only.
+
+## Contact
+
+- Indie developer: Oleksandr Prudnikov, UK
+- Open-source profile: https://github.com/Grommash9

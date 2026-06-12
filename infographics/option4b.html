@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  #root { width: 1320px; height: 2868px; overflow: hidden; }
+</style>
+<script src="vendor/react.js"></script>
+<script src="vendor/react-dom.js"></script>
+<script src="vendor/htm.js"></script>
+<script src="shared.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const { html, T, Chair3D, Phone, mount } = UI;
+
+function Grid() {
+  const l = [];
+  for (let i = 1; i < 6; i++) l.push(html`<div key=${'v'+i} style=${{position:'absolute',left:(i*16.6)+'%',top:0,bottom:0,width:1,background:'rgba(255,255,255,.06)'}}></div>`);
+  for (let i = 1; i < 9; i++) l.push(html`<div key=${'h'+i} style=${{position:'absolute',top:(i*11)+'%',left:0,right:0,height:1,background:'rgba(255,255,255,.06)'}}></div>`);
+  return html`<div style=${{position:'absolute',inset:0}}>${l}</div>`;
+}
+function Screen() {
+  return html`<div style=${{position:'absolute',inset:0,background:'radial-gradient(120% 100% at 50% 18%, #2a3550 0%, #0e1320 70%)'}}>
+    <${Grid}/>
+    <div style=${{position:'absolute',left:'16%',top:'30%',width:'66%',height:'46%',opacity:.55}}><${Chair3D} mode="photo" color="#8f9fbd"/></div>
+    <div style=${{position:'absolute',left:'21%',top:'27%',width:'66%',height:'46%'}}><${Chair3D} mode="line" glow=${true}/></div>
+    <div style=${{position:'absolute',left:0,right:0,bottom:40,textAlign:'center',color:'#fff',fontFamily:T.font,fontSize:30,fontWeight:600,opacity:.92}}>line up the glowing outline</div>
+  </div>`;
+}
+
+const USES = ["Instagram recreations","Gym progress","Weight loss","Plants","Renovations","Restorations","Hair & beard","Bump progress"];
+
+function App() {
+  return html`<div style=${{width:1320,height:2868,background:'linear-gradient(180deg,#070a12,#0d1322)',fontFamily:T.font,padding:'120px 80px',display:'flex',flexDirection:'column',alignItems:'center'}}>
+    <div style=${{textAlign:'center'}}>
+      <div style=${{color:'#fff',fontSize:96,fontWeight:800,lineHeight:1.04}}>Same angle.</div>
+      <div style=${{color:T.glow,fontSize:96,fontWeight:800,lineHeight:1.04}}>Every time.</div>
+      <div style=${{color:'#aeb9cc',fontSize:40,marginTop:24}}>Overlay your last photo, line up the contours, retake the exact same shot.</div>
+    </div>
+
+    <div style=${{marginTop:70}}>
+      <${Phone} width=${620}><${Screen}/><//>
+    </div>
+
+    <div style=${{display:'flex',gap:24,marginTop:80}}>
+      ${[['1','Load a photo'],['2','Line up contours'],['3','Capture']].map(s => html`
+        <div key=${s[0]} style=${{display:'flex',alignItems:'center',gap:16,background:'rgba(255,255,255,.06)',border:'1px solid rgba(255,255,255,.12)',borderRadius:999,padding:'20px 30px'}}>
+          <div style=${{width:48,height:48,borderRadius:999,background:T.glow,color:'#06202a',fontWeight:800,fontSize:28,display:'flex',alignItems:'center',justifyContent:'center'}}>${s[0]}</div>
+          <div style=${{color:'#fff',fontSize:32,fontWeight:600}}>${s[1]}</div>
+        </div>`)}
+    </div>
+
+    <div style=${{marginTop:'auto',width:'100%',textAlign:'center'}}>
+      <div style=${{display:'flex',flexWrap:'wrap',gap:18,justifyContent:'center',marginBottom:60}}>
+        ${USES.map(u => html`<span key=${u} style=${{color:'#cfe9ff',border:'1px solid rgba(65,224,255,.35)',fontSize:30,fontWeight:600,padding:'12px 24px',borderRadius:999}}>${u}</span>`)}
+      </div>
+      <div style=${{color:'#fff',fontSize:48,fontWeight:800,letterSpacing:4}}>CONTOUR</div>
+    </div>
+  </div>`;
+}
+mount(html`<${App}/>`);
+</script>
+</body>
+</html>

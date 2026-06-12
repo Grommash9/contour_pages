@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #fff; }
+  #root { width: 1200px; height: 1500px; overflow: hidden; }
+</style>
+<script src="vendor/react.js"></script>
+<script src="vendor/react-dom.js"></script>
+<script src="vendor/htm.js"></script>
+<script src="shared.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const { html, T, Chair, mount } = UI;
+
+function Thumb({ rot = 0, scale = 1, dx = 0, dy = 0, color, tint, mark, markColor }) {
+  return html`<div style=${{position:'relative',height:250,borderRadius:22,background:tint,overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}}>
+    <div style=${{width:'52%',height:'72%',transform:`translate(${dx}px,${dy}px) rotate(${rot}deg) scale(${scale})`}}>
+      <${Chair} mode="photo" color=${color} />
+    </div>
+    <div style=${{position:'absolute',top:12,right:14,width:40,height:40,borderRadius:999,background:markColor,color:'#fff',fontSize:24,fontWeight:900,display:'flex',alignItems:'center',justifyContent:'center'}}>${mark}</div>
+  </div>`;
+}
+
+function Column({ heading, headColor, chip, chipBg, frames }) {
+  return html`<div style=${{flex:1,display:'flex',flexDirection:'column'}}>
+    <div style=${{textAlign:'center',marginBottom:22}}>
+      <span style=${{background:chipBg,color:headColor,fontSize:24,fontWeight:800,padding:'10px 22px',borderRadius:999}}>${chip}</span>
+    </div>
+    <div style=${{display:'flex',flexDirection:'column',gap:20}}>${frames}</div>
+  </div>`;
+}
+
+function App() {
+  return html`<div style=${{width:1200,height:1500,background:T.paper,fontFamily:T.font,padding:'70px 60px 56px'}}>
+    <div style=${{textAlign:'center',marginBottom:14}}>
+      <div style=${{fontSize:62,fontWeight:800,color:T.ink,lineHeight:1.05}}>Stop guessing the angle</div>
+      <div style=${{fontSize:26,color:T.sub,marginTop:16}}>Line up the contours of your last shot and nail the same frame — every time.</div>
+    </div>
+
+    <div style=${{display:'flex',gap:30,marginTop:30,position:'relative'}}>
+      <${Column} chip="By eye" headColor="#C0392B" chipBg="#FBE3DF"
+        frames=${[
+          html`<${Thumb} key=1 rot=${-8} scale=${0.82} dx=${-26} dy=${10} color="#B7BEC9" tint="#F6E9E7" mark="✗" markColor="#C0392B" />`,
+          html`<${Thumb} key=2 rot=${6} scale=${1.12} dx=${30} dy=${-6} color="#B7BEC9" tint="#F6E9E7" mark="✗" markColor="#C0392B" />`,
+          html`<${Thumb} key=3 rot=${-3} scale=${0.95} dx=${14} dy=${18} color="#B7BEC9" tint="#F6E9E7" mark="✗" markColor="#C0392B" />`,
+        ]} />
+
+      <div style=${{position:'absolute',top:'52%',left:'50%',transform:'translate(-50%,-50%)',zIndex:5,width:74,height:74,borderRadius:999,background:T.ink,color:'#fff',fontSize:26,fontWeight:800,display:'flex',alignItems:'center',justifyContent:'center'}}>VS</div>
+
+      <${Column} chip="With Contour" headColor=${T.accent} chipBg=${T.accentSoft}
+        frames=${[
+          html`<${Thumb} key=1 rot=${0} scale=${1} dx=${0} dy=${0} color=${T.accent} tint="#E7ECF8" mark="✓" markColor=${T.green} />`,
+          html`<${Thumb} key=2 rot=${0} scale=${1} dx=${0} dy=${0} color=${T.accent} tint="#E7ECF8" mark="✓" markColor=${T.green} />`,
+          html`<${Thumb} key=3 rot=${0} scale=${1} dx=${0} dy=${0} color=${T.accent} tint="#E7ECF8" mark="✓" markColor=${T.green} />`,
+        ]} />
+    </div>
+
+    <div style=${{textAlign:'center',marginTop:40,fontSize:30,fontWeight:800,color:T.ink,letterSpacing:2}}>CONTOUR</div>
+  </div>`;
+}
+mount(html`<${App}/>`);
+</script>
+</body>
+</html>
